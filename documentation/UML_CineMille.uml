@@ -1,0 +1,31 @@
+@startuml
+class Film {
+    Long id
+    String titolo
+    Date dataInizio
+    Date dataFine
+    String sala
+}
+
+interface FilmRepository {
+    +findAll(): List<Film>
+    +findByDateRange(startDate: Date, endDate: Date): List<Film>
+    +findHistoricalFilms(): List<Film>
+}
+
+class FilmService {
+    +getAllFilms(): List<Film>
+    +getFilmsByDate(startDate: Date, endDate: Date): List<Film>
+    +getHistoricalFilms(): List<Film>
+}
+
+class FilmController {
+    +getAllFilms(): List<Film>
+    +getFilmsByDate(startDate: Date, endDate: Date): List<Film>
+    +getHistoricalFilms(): List<Film>
+}
+
+FilmRepository --> Film
+FilmService --> FilmRepository
+FilmController --> FilmService
+@enduml

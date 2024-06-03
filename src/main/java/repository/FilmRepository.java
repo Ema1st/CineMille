@@ -18,4 +18,5 @@ public interface FilmRepository extends JpaRepository<Film, Long> {
 
 	@Query("SELECT f FROM Film f WHERE f.dataFine < CURRENT_DATE")
 	List<Film> findHistoricalFilms();
+
 }
