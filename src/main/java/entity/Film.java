@@ -1,6 +1,6 @@
 package entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,10 +24,10 @@ public class Film {
 	private String titolo;
 
 	@Temporal(TemporalType.DATE)
-	private Date dataInizio;
+	private LocalDate dataInizio;
 
 	@Temporal(TemporalType.DATE)
-	private Date dataFine;
+	private LocalDate dataFine;
 
 	private String sala;
 
