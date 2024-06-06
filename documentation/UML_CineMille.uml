@@ -2,30 +2,40 @@
 class Film {
     Long id
     String titolo
-    Date dataInizio
-    Date dataFine
+    LocalDate dataInizio
+    LocalDate dataFine
+    String sala
+}
+
+class FilmDTO {
+    Long id
+    String titolo
+    LocalDate dataInizio
+    LocalDate dataFine
     String sala
 }
 
 interface FilmRepository {
     +findAll(): List<Film>
-    +findByDateRange(startDate: Date, endDate: Date): List<Film>
+    +findByDateRange(startDate: LocalDate, endDate: LocalDate): List<Film>
     +findHistoricalFilms(): List<Film>
 }
 
 class FilmService {
-    +getAllFilms(): List<Film>
-    +getFilmsByDate(startDate: Date, endDate: Date): List<Film>
-    +getHistoricalFilms(): List<Film>
+    +getAllFilms(): List<FilmDTO>
+    +getFilmsByDateRange(startDate: LocalDate, endDate: LocalDate): List<FilmDTO>
+    +getHistoricalFilms(): List<FilmDTO>
+    -convertToDTO(film: Film): FilmDTO
 }
 
 class FilmController {
-    +getAllFilms(): List<Film>
-    +getFilmsByDate(startDate: Date, endDate: Date): List<Film>
-    +getHistoricalFilms(): List<Film>
+    +getAllFilms(): List<FilmDTO>
+    +getFilmsByDate(startDate: LocalDate, endDate: LocalDate): List<FilmDTO>
+    +getHistoricalFilms(): List<FilmDTO>
 }
 
 FilmRepository --> Film
 FilmService --> FilmRepository
 FilmController --> FilmService
+FilmService --> FilmDTO
 @enduml
