@@ -19,6 +19,5 @@ public class FilmDTO {
 
 	private String sala;
 
-
 }
 
