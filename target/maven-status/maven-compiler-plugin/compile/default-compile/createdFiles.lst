@@ -1,5 +1,6 @@
+repository\FilmRepository.class
+dto\FilmDTO.class
 controller\FilmController.class
 entity\Film.class
-repository\FilmRepository.class
 application\CineMilleApplication.class
 service\FilmService.class
